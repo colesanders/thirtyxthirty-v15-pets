@@ -1,0 +1,53 @@
+<mat-card class="mat-card-light"> 
+    <mat-card-header style="display: flex; justify-content: space-between;">
+      <mat-card-title class="accent">
+        <span *ngIf="petForm.value.id !== null; else elseBlock">
+          Editing Pet
+        </span>
+        <ng-template #elseBlock>
+          Create Pet
+        </ng-template>
+      </mat-card-title>
+      
+    </mat-card-header>
+  <form [formGroup]="petForm" (ngSubmit)="saved.emit(petForm.value)">
+    <mat-card-content>
+
+      <mat-form-field appearance="fill" >
+        <mat-label>Pet Type</mat-label>
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let option of petTypes" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" >
+        <mat-label>Seat Shape</mat-label>
+        <mat-select formControlName="seatShape">
+          <mat-option *ngFor="let option of seatShapes" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <section>
+        <mat-slide-toggle matInput formControlName="backing">Backing</mat-slide-toggle>
+      </section>
+      <br>
+
+      <mat-form-field>
+        <mat-label>Legs</mat-label>
+        <input matInput formControlName="legs" type="number">
+      </mat-form-field>
+      <br>
+
+    </mat-card-content>
+    <mat-card-actions style="display: flex; justify-content: space-between;">
+      <button [disabled]="petForm.invalid" type="submit" mat-button color="primary">Save</button>
+      <button type="button" mat-button (click)="cancelled.emit();$event.stopImmediatePropagation();cancel();">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

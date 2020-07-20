@@ -1,0 +1,11 @@
+<div class="pets-containers">
+    <div class="pets-list">
+        <thirty-pets-list [pets]="pets$ | async" (selected)="select($event)" (deleted)="delete($event)">
+        </thirty-pets-list>
+    </div>
+    <div [@openClose]="detailOpen ? 'open' : 'closed'" >
+        <thirty-pets-detail [pet]="pet$ | async" (saved)="save($event)" (cancelled)="cancel()" 
+        (click)="focusDetail();$event.stopImmediatePropagation()" > 
+        </thirty-pets-detail>
+    </div>
+</div>
