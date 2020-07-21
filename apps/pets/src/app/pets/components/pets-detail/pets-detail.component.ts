@@ -35,21 +35,24 @@ export class PetsDetailComponent implements OnInit, OnChanges{
 
   cancel(){
     this.petForm.reset();
-    this.petForm.value.price = 0;
+    this.petForm.value.weight = 0;
   }
 
   createFormGroup(){
     this.petForm = this.formBuilder.group({
       id: [],
-      type: new FormControl('', [
+      name: new FormControl('', [
         Validators.required,
       ]),
-      legs: new FormControl('', [
+      species: new FormControl('', [
         Validators.required,
       ]),
-      backing: new FormControl(false, [
+      breed: new FormControl('', [
       ]),
-      seatShape: new FormControl('', [
+      furColor: new FormControl('', [
+        Validators.required,
+      ]),
+      weight: new FormControl(0, [
         Validators.required,
       ])
     })

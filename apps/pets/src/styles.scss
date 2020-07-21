@@ -33,11 +33,16 @@ $pets-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($pets-theme);
 
+
 /* You can add global styles to this file, and also import other style files */
 
+
+
+
 $primary-color: #154918;
-$secondary-color: #1b5e1f;
-$accent-color: #ad3988;
+$secondary-color: #4d342c;
+$tertiary-color: #0a320c;
+$accent-color: #FF6D00;
 
 html,
 body {
@@ -59,7 +64,8 @@ thirty-root {
 .toolbar {
   display: flex; 
   justify-content: space-between;
-  background-color: $primary-color;
+  background-color: $tertiary-color;
+  
 }
 
 .subtitle {
@@ -69,7 +75,7 @@ thirty-root {
 mat-sidenav {
   width: auto;
   background-color: $secondary-color !important;
-  border-radius: 5px;
+  border-radius: 0px 8px 8px 0px;
   text-align: center;
 }
 
@@ -84,7 +90,6 @@ mat-sidenav {
 
 .mat-sidenav-container {
   flex: 1;
-  border-radius: 0px 0px 20px 0px;
   background-color: $primary-color;
 }
 
@@ -92,7 +97,6 @@ mat-sidenav {
   display: flex;
   padding: 8px;
   justify-content: space-around;
-  border-radius: 8px;
 
   .pets-list {
     width: 49%;
@@ -107,5 +111,6 @@ mat-sidenav {
   }
   .mat-card-light {
     background-color: whitesmoke;
+    border-radius: 10px;
   }
 }

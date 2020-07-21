@@ -92,5 +92,4 @@ export interface Login {
   "id": string,
   "username": string,
   "password": string,
-  "logged_in": boolean,
 }

@@ -7,12 +7,8 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let pet of pets" (click)="selected.emit(pet)" style="cursor: pointer">
-        <h3 matLine> {{ pet.type | titlecase}} </h3>
-        <p matLine>
-          {{ pet.legs }} Legs
-          <span *ngIf="pet.backing">, Has Backing</span>
-          , {{ pet.seatShape | titlecase}} Seat
-        </p>
+        <h3 matLine> {{ pet.name | titlecase}} </h3>
+        <p matLine>{{ pet.species }}</p>
 
         <button mat-icon-button color="warn" (click)="deleted.emit(pet); $event.stopImmediatePropagation()" >
           <mat-icon>delete</mat-icon>

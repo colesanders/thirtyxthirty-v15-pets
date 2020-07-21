@@ -13,32 +13,35 @@
   <form [formGroup]="petForm" (ngSubmit)="saved.emit(petForm.value)">
     <mat-card-content>
 
-      <mat-form-field appearance="fill" >
-        <mat-label>Pet Type</mat-label>
-        <mat-select formControlName="type">
-          <mat-option *ngFor="let option of petTypes" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-select>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="string">
       </mat-form-field>
-
-      <mat-form-field appearance="fill" >
-        <mat-label>Seat Shape</mat-label>
-        <mat-select formControlName="seatShape">
-          <mat-option *ngFor="let option of seatShapes" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <br>
 
       <section>
-        <mat-slide-toggle matInput formControlName="backing">Backing</mat-slide-toggle>
+        <mat-button-toggle-group style="width:100%;" formControlName="species">
+          <mat-button-toggle style="width:50%;" value="Dog">Dog</mat-button-toggle>
+          <mat-button-toggle style="width:50%;" value="Cat">Cat</mat-button-toggle>
+        </mat-button-toggle-group>
       </section>
       <br>
 
       <mat-form-field>
-        <mat-label>Legs</mat-label>
-        <input matInput formControlName="legs" type="number">
+        <mat-label>Breed</mat-label>
+        <input matInput formControlName="breed" type="string">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field>
+        <mat-label style="color: {{petForm.value.furColor}}">Color</mat-label>
+        <input matInput formControlName="furColor" type="string">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field>
+        <mat-label>Weight</mat-label>
+        <input matInput formControlName="weight" type="number">
       </mat-form-field>
       <br>
 
